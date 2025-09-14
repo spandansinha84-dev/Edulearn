@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Accessible Educational Design System for Specially-abled Students
+   High contrast, large elements, calm colors for learning
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Learning-focused blue palette */
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 100% 85%;
+    --primary-dark: 210 100% 35%;
+
+    /* Success/progress green */
+    --success: 140 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 140 60% 85%;
+
+    /* Calm secondary colors */
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 215 25% 25%;
+
+    /* High contrast muted colors */
+    --muted: 210 15% 88%;
+    --muted-foreground: 215 15% 35%;
+
+    /* Accessible accent */
+    --accent: 175 60% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 175 60% 85%;
+
+    /* Clear destructive */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* High contrast borders */
+    --border: 210 20% 82%;
+    --input: 210 20% 92%;
+    --ring: 210 100% 45%;
+
+    /* Focus ring for accessibility */
+    --focus-ring: 210 100% 45%;
+    
+    /* Gradients for visual appeal */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-light)));
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
+
+    /* Shadows for depth */
+    --shadow-soft: 0 2px 8px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 4px 16px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 8px 32px hsl(var(--primary) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.15s ease-out;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    min-height: 100vh;
+  }
+
+  /* Accessibility enhancements */
+  *:focus-visible {
+    outline: 3px solid hsl(var(--focus-ring));
+    outline-offset: 2px;
+    border-radius: calc(var(--radius) - 2px);
+  }
+
+  /* Large text for better readability */
+  h1 { @apply text-4xl md:text-5xl font-bold leading-tight; }
+  h2 { @apply text-3xl md:text-4xl font-semibold leading-snug; }
+  h3 { @apply text-2xl md:text-3xl font-medium leading-snug; }
+  h4 { @apply text-xl md:text-2xl font-medium; }
+  p { @apply text-lg md:text-xl leading-relaxed; }
+
+  /* Custom scrollbar for better UX */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-dark));
+  }
+}
+
+@layer components {
+  /* Accessible button variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground;
+    @apply px-8 py-4 rounded-xl text-xl font-semibold;
+    @apply shadow-medium hover:shadow-strong;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-105 hover:brightness-110;
+    @apply focus:scale-105 focus:brightness-110;
+    @apply min-h-[60px] min-w-[140px];
+  }
+
+  .btn-large {
+    @apply bg-primary text-primary-foreground;
+    @apply px-6 py-3 rounded-lg text-lg font-medium;
+    @apply shadow-soft hover:shadow-medium;
+    @apply transition-all duration-200 ease-out;
+    @apply hover:bg-primary-dark focus:bg-primary-dark;
+    @apply min-h-[50px] min-w-[120px];
+  }
+
+  .btn-success {
+    @apply bg-success text-success-foreground;
+    @apply px-6 py-3 rounded-lg text-lg font-medium;
+    @apply shadow-soft hover:shadow-medium;
+    @apply transition-all duration-200 ease-out;
+    @apply hover:brightness-110 focus:brightness-110;
+    @apply min-h-[50px];
+  }
+
+  /* Accessible cards */
+  .card-accessible {
+    @apply bg-card border border-border rounded-xl p-6;
+    @apply shadow-soft hover:shadow-medium;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-[1.02] focus-within:scale-[1.02];
+  }
+
+  /* High contrast inputs */
+  .input-accessible {
+    @apply bg-input border-2 border-border rounded-lg;
+    @apply px-4 py-3 text-lg;
+    @apply focus:border-primary focus:ring-2 focus:ring-primary/20;
+    @apply transition-all duration-200 ease-out;
+    @apply min-h-[50px];
+  }
+
+  /* Progress indicators */
+  .progress-bar {
+    @apply w-full bg-muted rounded-full h-4;
+    @apply shadow-inner;
+  }
+
+  .progress-fill {
+    @apply bg-gradient-to-r from-success to-accent h-full rounded-full;
+    @apply transition-all duration-500 ease-out;
+    @apply shadow-sm;
+  }
+
+  /* Speaking indicator animation */
+  .speaking-pulse {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent)), 0 0 15px hsl(var(--accent)); }
+    50% { box-shadow: 0 0 10px hsl(var(--accent)), 0 0 20px hsl(var(--accent)), 0 0 30px hsl(var(--accent)); }
+  }
+
+  /* Language switcher */
+  .language-button {
+    @apply px-4 py-2 rounded-lg border-2 border-border;
+    @apply transition-all duration-200 ease-out;
+    @apply hover:border-primary hover:bg-primary/10;
+    @apply focus:border-primary focus:bg-primary/10;
+    @apply min-h-[44px] min-w-[60px];
+  }
+
+  .language-button.active {
+    @apply border-primary bg-primary text-primary-foreground;
+  }
+}
+
+@layer utilities {
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-medium { box-shadow: var(--shadow-medium); }
+  .shadow-strong { box-shadow: var(--shadow-strong); }
+}
