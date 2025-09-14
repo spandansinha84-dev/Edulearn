@@ -32,6 +32,8 @@ const HeroSection = () => {
         
         <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto animate-slide-up" style={{animationDelay: '0.2s'}}>
           Access thousands of courses, notes, and resources from top educators worldwide
+          <br/>
+          <b>For Especially Abled Students</b>
         </p>
 
         {/* Hero Search Bar */}
