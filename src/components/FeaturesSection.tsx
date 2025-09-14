@@ -1,4 +1,4 @@
-import { FileText, BookOpen, Brain, TrendingUp, Users, Clock } from 'lucide-react';
+import { FileText, BookOpen, Brain, TrendingUp, Users, Mic } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const FeaturesSection = () => {
@@ -34,9 +34,9 @@ const FeaturesSection = () => {
       color: 'text-primary'
     },
     {
-      icon: Clock,
-      title: '24/7 Learning',
-      description: 'Learn at your own pace with round-the-clock access to all educational resources.',
+      icon: Mic,
+      title: 'Text To Speech',
+      description: 'Transform written words into natural, human-like speech with ease.',
       color: 'text-accent'
     }
   ];
